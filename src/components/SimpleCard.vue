@@ -30,13 +30,23 @@ export default {
 
          <h5 class="card-title fs-2"> {{ movieObj.title }} </h5>
 
-         <h4 class="card-text fs-5">Original title</h4>
+         <h4 class="card-text fs-5"> {{ movieObj.original_title }} </h4>
 
       </div>
 
       <ul class="list-group list-group-flush">
 
-         <li class="list-group-item">An item</li>
+         <li class="list-group-item">
+            
+            {{ movieObj.original_language }}
+            
+         </li>
+
+         <li class="list-group-item">
+            
+            {{ movieObj.vote_average }}
+            
+         </li>
 
       </ul>
 
