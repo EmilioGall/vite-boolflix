@@ -7,5 +7,5 @@ export const store = reactive({
    moviesArray: [],
    tvSeriesArray: [],
    isShowedList: false,
-
+   langArray: ["it", "en", "fr", "de", "es", "ja", "ko", "cn", "ru",]
 });
