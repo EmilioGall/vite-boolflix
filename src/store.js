@@ -7,5 +7,5 @@ export const store = reactive({
    moviesArray: [],
    tvSeriesArray: [],
    isShowedList: false,
-
+   movieFeaturesArray: ["original_language", "vote_averag"],
 });
