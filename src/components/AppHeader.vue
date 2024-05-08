@@ -38,7 +38,7 @@ export default {
 
             <div class="col-8 d-flex justify-content-end">
 
-               <SearchBar />
+               <SearchBar @search="$emit('search')"/>
 
             </div>
 
