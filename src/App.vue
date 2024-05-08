@@ -25,7 +25,6 @@ export default {
 
   created() {
 
-    // this.getMovies();
 
   },
 
@@ -57,9 +56,9 @@ export default {
 
             console.log(resp);
 
-            this.store.moviesArray = resp.results;
+            this.store.moviesArray = resp.data.results;
 
-            console.log("moviesArray", this.store.charactersArray);
+            console.log("moviesArray", this.store.moviesArray);
 
           });
 
@@ -78,7 +77,7 @@ export default {
 <template>
 
 
-  <AppHeader @search="getMovies" />
+  <AppHeader @searchToApp="getMovies" />
 
   <AppMain />
 
