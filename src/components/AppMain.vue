@@ -22,7 +22,20 @@ export default {
 
 <template>
 
-   <h2>Main</h2>
+   <div class="container text-center">
+
+      <div class="row row-cols-4">
+
+         <div class="col" v-for="movie in store.moviesArray">
+         
+         {{ movie.title }}
+
+         </div>
+
+
+      </div>
+
+   </div>
 
 </template>
 
