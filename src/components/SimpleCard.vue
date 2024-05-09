@@ -78,7 +78,7 @@ export default {
 
       <div class="card-body">
 
-         <h5 class="card-title fs-2"> {{ movieObj.title }} </h5>
+         <h5 class="card-title fs-4"> {{ movieObj.title }} </h5>
 
          <h4 class="card-text fs-5"> {{ movieObj.original_title }} </h4>
 
@@ -88,7 +88,7 @@ export default {
 
          <li class="list-group-item">
 
-            <p class="my-0">
+            <p class="my-0 fs-6">
                Language: {{ movieObj.original_language.toUpperCase() }}
             </p>
 

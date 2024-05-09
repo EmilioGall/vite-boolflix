@@ -69,7 +69,47 @@ export default {
       };
 
     },
-    
+
+    getTvSeries() {
+
+      let params = {
+
+        api_key: this.store.apikey,
+
+      };
+
+      if (this.store.textImput !== "") {
+
+        params.query = this.store.textImput
+
+        this.store.isShowedList = true;
+
+        console.log("Inserted text", this.store.textImput);
+
+        console.log("isShowedList", this.store.isShowedList);
+
+        axios
+          .get("https://api.themoviedb.org/3/search/tv", {
+            params,
+          })
+          .then((resp) => {
+
+            console.log(resp);
+
+            this.store.tvSeriesArray = resp.data.results;
+
+            console.log("moviesArray", this.store.tvSeriesArray);
+
+          });
+
+      } else {
+
+        this.store.isShowedList = false;
+
+      };
+
+    },
+
   },
 
 }
@@ -77,12 +117,9 @@ export default {
 
 <template>
 
-
   <AppHeader @searchToApp="getMovies" />
 
   <AppMain />
-
-
 
 </template>
 
