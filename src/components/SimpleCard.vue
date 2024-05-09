@@ -25,31 +25,41 @@ export default {
 
    methods: {
 
-      toLang() {
+      toLanguage() {
 
-         if (this.movieObj.original_language === "en") {
+         switch (this.movieObj.original_language) {
 
-            console.log("language", this.movieObj.original_language);
+            case "en":
 
-            return "gb";
+               console.log("language", this.movieObj.original_language);
 
-         } else if (this.movieObj.original_language === "ja") {
+               return "gb";
 
-            console.log("language", this.movieObj.original_language);
+               break;
 
-            return "jp";
+            case "ja":
 
-         } else if (this.movieObj.original_language === "ko") {
+               console.log("language", this.movieObj.original_language);
 
-            console.log("language", this.movieObj.original_language);
+               return "jp";
 
-            return "kr";
+               break;
 
-         } else {
+            case "ko":
 
-            console.log("language", this.movieObj.original_language);
+               console.log("language", this.movieObj.original_language);
 
-            return this.movieObj.original_language;
+               return "kr";
+
+               break;
+
+            default:
+
+               console.log("language", this.movieObj.original_language);
+
+               return this.movieObj.original_language;
+
+               break;
 
          };
 
@@ -82,7 +92,7 @@ export default {
                Language: {{ movieObj.original_language.toUpperCase() }}
             </p>
 
-            <img :src="`https://flagsapi.com/${toLang().toUpperCase()}/shiny/32.png`" alt="">
+            <img :src="`https://flagsapi.com/${toLanguage().toUpperCase()}/shiny/32.png`" alt="">
 
          </li>
 
