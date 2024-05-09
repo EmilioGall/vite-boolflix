@@ -135,9 +135,9 @@ export default {
 
          <li class="list-group-item">
 
-            <p class="my-0 fs-6">
+            <h3 class="my-0 fs-6">
                Language: {{ titleObj.original_language.toUpperCase() }}
-            </p>
+            </h3>
 
             <img :src="`https://flagsapi.com/${correctLanguage.toUpperCase()}/shiny/32.png`" alt="">
 
@@ -145,7 +145,25 @@ export default {
 
          <li class="list-group-item">
 
-            {{ correctVote }}
+            <h3 class="my-0 fs-6">
+               Vote: {{ correctVote }}
+            </h3>
+
+            <div>
+
+               <span class="full-stars" v-for="n in correctVote">
+
+                  <i class="fa-solid fa-star"></i>
+
+               </span>
+
+               <span class="full-stars" v-for="n in (5-correctVote)">
+
+                  <i class="fa-regular fa-star"></i>
+
+               </span>
+
+            </div>
 
          </li>
 
