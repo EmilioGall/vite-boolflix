@@ -17,6 +17,46 @@ export default {
       };
    },
 
+   computed: {
+
+
+
+   },
+
+   methods: {
+
+      toLang() {
+
+         if (this.movieObj.original_language === "en") {
+
+            console.log("language", this.movieObj.original_language);
+
+            return "gb";
+
+         } else if (this.movieObj.original_language === "ja") {
+
+            console.log("language", this.movieObj.original_language);
+
+            return "jp";
+
+         } else if (this.movieObj.original_language === "ko") {
+
+            console.log("language", this.movieObj.original_language);
+
+            return "kr";
+
+         } else {
+
+            console.log("language", this.movieObj.original_language);
+
+            return this.movieObj.original_language;
+
+         };
+
+      },
+
+   },
+
 }
 </script>
 
@@ -39,10 +79,10 @@ export default {
          <li class="list-group-item">
 
             <p class="my-0">
-               {{ movieObj.original_language }}
+               Language: {{ movieObj.original_language.toUpperCase() }}
             </p>
 
-            <img :src="`https://flagsapi.com/${movieObj.original_language.toUpperCase()}/shiny/64.png`" alt="">
+            <img :src="`https://flagsapi.com/${toLang().toUpperCase()}/shiny/32.png`" alt="">
 
          </li>
 
