@@ -5,7 +5,8 @@ export default {
 
    props: {
 
-      movieObj: Object,
+      titleObj: Object,
+      titleIndex: Number,
 
    },
 
@@ -17,21 +18,19 @@ export default {
       };
    },
 
-   computed: {
+   created() {
 
-
+      console.log("titleObj", this.titleObj);
 
    },
 
-   methods: {
+   computed: {
 
-      toLanguage() {
+      correctLanguage() {
 
-         switch (this.movieObj.original_language) {
+         switch (this.titleObj.original_language) {
 
             case "en":
-
-               console.log("language", this.movieObj.original_language);
 
                return "gb";
 
@@ -39,31 +38,76 @@ export default {
 
             case "ja":
 
-               console.log("language", this.movieObj.original_language);
-
                return "jp";
 
                break;
 
             case "ko":
 
-               console.log("language", this.movieObj.original_language);
-
                return "kr";
+
+               break;
+
+            case "zh":
+
+               return "cn";
+
+               break;
+
+            case "hi":
+
+               return "in";
 
                break;
 
             default:
 
-               console.log("language", this.movieObj.original_language);
-
-               return this.movieObj.original_language;
+               return this.titleObj.original_language;
 
                break;
 
          };
 
       },
+
+      correctTitle() {
+
+         if (this.titleObj.original_title) {
+
+            return `${this.titleObj.original_title}`;
+
+         } else {
+
+            return `${this.titleObj.original_name}`;
+
+         };
+
+      },
+
+      correctOriginalTitle() {
+
+         if (this.titleObj.original_title) {
+
+            return `${this.titleObj.title}`;
+
+         } else {
+
+            return `${this.titleObj.name}`;
+
+         };
+
+      },
+
+      correctOriginalVote() {
+
+         return Math.ceil(this.titleObj.vote_average);
+
+      },
+
+   },
+
+   methods: {
+
 
    },
 
@@ -72,39 +116,45 @@ export default {
 
 <template>
 
+   <!-- Card -->
    <div class="card">
 
       <img src="..." class="card-img-top" alt="...">
 
+      <!-- Card Titles Section -->
       <div class="card-body">
 
-         <h5 class="card-title fs-4"> {{ movieObj.title }} </h5>
+         <h5 class="card-title fs-4"> {{ correctTitle }} </h5>
 
-         <h4 class="card-text fs-5"> {{ movieObj.original_title }} </h4>
+         <h4 class="card-text fs-5"> {{ correctOriginalTitle }} </h4>
 
       </div>
+      <!-- /Card Titles Section -->
 
+      <!-- Card Info Section -->
       <ul class="list-group list-group-flush">
 
          <li class="list-group-item">
 
             <p class="my-0 fs-6">
-               Language: {{ movieObj.original_language.toUpperCase() }}
+               Language: {{ titleObj.original_language.toUpperCase() }}
             </p>
 
-            <img :src="`https://flagsapi.com/${toLanguage().toUpperCase()}/shiny/32.png`" alt="">
+            <img :src="`https://flagsapi.com/${correctLanguage.toUpperCase()}/shiny/32.png`" alt="">
 
          </li>
 
          <li class="list-group-item">
 
-            {{ movieObj.vote_average }}
+            {{ correctOriginalVote }}
 
          </li>
 
       </ul>
+      <!-- /Card Info Section -->
 
    </div>
+   <!-- /Cards -->
 
 </template>
 
