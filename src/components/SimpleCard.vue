@@ -19,7 +19,7 @@ export default {
 
    created() {
 
-      console.log("titleObj", this.titleObj);
+      // console.log("titleObj", this.titleObj);
 
    },
 
@@ -97,9 +97,9 @@ export default {
 
       },
 
-      correctOriginalVote() {
+      correctVote() {
 
-         return Math.ceil(this.titleObj.vote_average);
+         return Math.ceil(this.titleObj.vote_average / 2);
 
       },
 
@@ -145,7 +145,7 @@ export default {
 
          <li class="list-group-item">
 
-            {{ correctOriginalVote }}
+            {{ correctVote }}
 
          </li>
 
