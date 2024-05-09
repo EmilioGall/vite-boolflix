@@ -6,7 +6,6 @@ export default {
    props: {
 
       titleObj: Object,
-      titleIndex: Number,
 
    },
 
@@ -119,7 +118,7 @@ export default {
    <!-- Card -->
    <div class="card">
 
-      <img src="..." class="card-img-top" alt="...">
+      <img :src="`https://image.tmdb.org/t/p/w342${titleObj.poster_path}`" class="card-img-top" alt="...">
 
       <!-- Card Titles Section -->
       <div class="card-body">

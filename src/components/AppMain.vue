@@ -44,9 +44,9 @@ export default {
 
                <h2 class="fs-2">Movies Selected</h2>
 
-               <div class="col-3" v-for="curMovie, curMovieIndex in store.moviesArray">
+               <div class="col-3" v-for="curMovie in store.moviesArray">
 
-                  <SimpleCard :titleObj="curMovie" :titleIndex="curMovieIndex"/>
+                  <SimpleCard :titleObj="curMovie" />
 
                </div>
 
@@ -58,9 +58,9 @@ export default {
 
                <h2 class="fs-2">TV Series Selected</h2>
 
-               <div class="col-3" v-for="curTvSeries, curTvSeriesIndex in store.tvSeriesArray">
+               <div class="col-3" v-for="curTvSeries in store.tvSeriesArray">
 
-                  <SimpleCard :titleObj="curTvSeries" :titleIndex="curTvSeriesIndex" />
+                  <SimpleCard :titleObj="curTvSeries" />
 
                </div>
 
