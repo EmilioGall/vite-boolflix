@@ -37,15 +37,19 @@ export default {
       <ul class="list-group list-group-flush">
 
          <li class="list-group-item">
-            
-            {{ movieObj.original_language }}
-            
+
+            <p class="my-0">
+               {{ movieObj.original_language }}
+            </p>
+
+            <img :src="`https://flagsapi.com/${movieObj.original_language.toUpperCase()}/shiny/64.png`" alt="">
+
          </li>
 
          <li class="list-group-item">
-            
+
             {{ movieObj.vote_average }}
-            
+
          </li>
 
       </ul>
